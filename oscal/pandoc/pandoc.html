@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Pandoc: wat?</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/solarized.css" id="theme">
+  <link rel="stylesheet" href="/home/alter2000/oscal/pandoc/main.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Pandoc: wat?</h1>
+  <p class="date">2018-05-33</p>
+</section>
+
+<section class="slide level2">
+
+<p><img data-src="https://media.giphy.com/media/KOVlHmbBA09XO/giphy.gif" /></p>
+</section>
+<section><section id="why-are-you-here" class="title-slide slide level1"><h1>Why are you here?</h1></section><section id="the-wat" class="slide level2">
+<h2>the <strong>wat</strong>:</h2>
+<ol>
+<li>Brief history of printing</li>
+<li>Differences between writing workflows</li>
+<li>Separating content and layout</li>
+<li>Further fidgeting</li>
+</ol>
+<p>Slides: <a href="https://github.com/alter2000/prez/" class="uri">https://github.com/alter2000/prez/</a></p>
+</section><section id="text-editing-vs.document-editing" class="slide level2">
+<h2>Text editing vs. Document editing</h2>
+<ul>
+<li>At first, there were scribes</li>
+<li>then presses</li>
+<li>then typewriters</li>
+<li>then <em>electronic</em> typewriters</li>
+<li>then <em>computers</em> <small>(might as well shove some typewriter software in there)</small></li>
+</ul>
+</section><section id="the-rise-of-wysiwyg-editors" class="slide level2">
+<h2>The rise of WYSIWYG editors</h2>
+<ul>
+<li>no need to remember escape codes</li>
+<li>actual rough idea of finished product at hand</li>
+<li>anyone can be a pro publisher, not just writer</li>
+</ul>
+</section></section>
+<section><section id="mslibreoffice" class="title-slide slide level1"><h1><strong>MS/LibreOffice</strong></h1></section><section id="the-good" class="slide level2">
+<h2>The good</h2>
+<ul>
+<li>Every option carefully laid out in its own category</li>
+<li>Focus on the document, not the data</li>
+</ul>
+</section><section id="the-bad" class="slide level2">
+<h2>The bad</h2>
+<ul>
+<li>Unenforced structure</li>
+<li>Focus on the document, not the data</li>
+</ul>
+</section><section id="the-ugly" class="slide level2">
+<h2>The ugly</h2>
+<ul>
+<li>Every option carefully laid out in its own category</li>
+<li>Coexisting machine instructions and human instructions</li>
+<li>Format conversion? <code>del C:\WINDOWS\system32</code></li>
+</ul>
+</section></section>
+<section><section id="tex" class="title-slide slide level1"><h1>*<span class="math inline">\(\TeX\)</span></h1></section><section id="variants" class="slide level2">
+<h2>Variants</h2>
+<ul>
+<li><span class="math inline">\(\LaTeX\)</span></li>
+<li>LuaLaTeX</li>
+<li>XeTeX</li>
+<li>MathJax</li>
+<li>MikTeX</li>
+<li>LyX</li>
+<li>ConTeXt</li>
+<li>MathJax</li>
+</ul>
+</section><section id="the-good-1" class="slide level2">
+<h2>The good</h2>
+<ul>
+<li>Separate content and layout</li>
+<li>Every file is a plain text file</li>
+<li>Same format ever for almost half a century</li>
+</ul>
+</section><section id="the-bad-1" class="slide level2">
+<h2>The bad</h2>
+<ul>
+<li>Separate content and layout (needs a typesetter — <code>*tex</code>)</li>
+<li>May or may not have Unicode support</li>
+<li>Almost no use in the web (except math via MathJax)</li>
+</ul>
+</section><section id="the-ugly-1" class="slide level2">
+<h2>The ugly</h2>
+<ul>
+<li>Confusing syntax between the 20+ variants</li>
+<li>Confusing syntax in a single variant</li>
+<li>Confusing syntax for a plain text file</li>
+</ul>
+</section></section>
+<section><section id="but-wait-what-if-we" class="title-slide slide level1"><h1>But wait, what if we</h1></section><section id="add-more-markup-but-less" class="slide level2">
+<h2><em>add more markup</em> but <em>less</em></h2>
+<h4 id="lightweight-markup-languages">Lightweight markup languages</h4>
+<ul>
+<li>Markdown</li>
+<li>Rich Text Format</li>
+<li>reStructuredText</li>
+<li>AsciiDoc</li>
+<li>Emacs OrgMode</li>
+<li>groff</li>
+</ul>
+<p>Strictly content-focused</p>
+</section><section id="context" class="slide level2">
+<h2>ConTeXt</h2>
+<pre class="context"><code>\setuphead[section][style=\bfa]
+\setupbodyfontenvironment[default][em=italic]
+% comment (not compiled)
+\starttext
+\startsection[title={ConTeXt sample}]
+  This is a {\em standalone} ConTeXt document.
+\stopsection
+\startitemize[a] % alphabetic order
+  \item aye
+  \item bee
+  \item see
+\stopitemize
+\stoptext</code></pre>
+</section><section id="pandoc-markdown" class="slide level2">
+<h2>(Pandoc) Markdown</h2>
+<pre class="{left}"><code>heading 1
+----
+
+heading 2
+====
+
+# heading 1
+## heading 2 {#custom-section-name}
+...
+###### heading 6
+
+&gt; blockquote
+
+#. ordered list item
+
+5. beginning with another index
+
+- unordered list item
++ another one
+* with different symbols
+
+[link text](https://inline.link/reference)
+![image alt-text/caption] (relative/reference)
+[another link][1]
+
+paragraph
+
+ayy another paragraph with _emphasized_ (usually *italic*) and **strong**(usually __bold__) text
+
+term
+:  definition
+
+[1]: #section-reference</code></pre>
+</section><section id="rst" class="slide level2">
+<h2>rST</h2>
+<div class="sourceCode" id="cb3"><pre class="sourceCode rst"><code class="sourceCode rest"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="ot">`link text`_</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="fu">|substitution|</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4">| table     | heading       |</a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">| :-------: | ---------:    |</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">| stuff     | more stuff    |</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">| centered  | right-aligned |</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">term</a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">  definition</a></code></pre></div>
+</section><section id="office-open-xml-ms" class="slide level2">
+<h2>Office Open XML (MS)</h2>
+<p><code>word/document.xml:</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode xml"><code class="sourceCode xml"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;<span class="kw">?&gt;</span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">&lt;w:document</span><span class="ot"> xmlns:wpc=</span><span class="st">&quot;http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas&quot;</span><span class="ot"> xmlns:mc=</span><span class="st">&quot;http://schemas.openxmlformats.org/markup-compatibility/2006&quot;</span><span class="ot"> xmlns:o=</span><span class="st">&quot;urn:schemas-microsoft-com:office:office&quot;</span><span class="ot"> xmlns:r=</span><span class="st">&quot;http://schemas.openxmlformats.org/officeDocument/2006/relationships&quot;</span><span class="ot"> xmlns:m=</span><span class="st">&quot;http://schemas.openxmlformats.org/officeDocument/2006/math&quot;</span><span class="ot"> xmlns:v=</span><span class="st">&quot;urn:schemas-microsoft-com:vml&quot;</span><span class="ot"> xmlns:wp14=</span><span class="st">&quot;http://schemas.microsoft.com/office/word/2010/wordprocessingDrawing&quot;</span><span class="ot"> xmlns:wp=</span><span class="st">&quot;http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing&quot;</span><span class="ot"> xmlns:w=</span><span class="st">&quot;http://schemas.openxmlformats.org/wordprocessingml/2006/main&quot;</span><span class="ot"> xmlns:w14=</span><span class="st">&quot;http://schemas.microsoft.com/office/word/2010/wordml&quot;</span><span class="ot"> xmlns:w10=</span><span class="st">&quot;urn:schemas-microsoft-com:office:word&quot;</span><span class="ot"> xmlns:w15=</span><span class="st">&quot;http://schemas.microsoft.com/office/word/2012/wordml&quot;</span><span class="ot"> xmlns:wpg=</span><span class="st">&quot;http://schemas.microsoft.com/office/word/2010/wordprocessingGroup&quot;</span><span class="ot"> xmlns:wpi=</span><span class="st">&quot;http://schemas.microsoft.com/office/word/2010/wordprocessingInk&quot;</span><span class="ot"> xmlns:wne=</span><span class="st">&quot;http://schemas.microsoft.com/office/word/2006/wordml&quot;</span><span class="ot"> xmlns:wps=</span><span class="st">&quot;http://schemas.microsoft.com/office/word/2010/wordprocessingShape&quot;</span><span class="ot"> xmlns:wpsCustomData=</span><span class="st">&quot;http://www.wps.cn/officeDocument/2013/wpsCustomData&quot;</span><span class="ot"> mc:Ignorable=</span><span class="st">&quot;w14 w15 wp14&quot;</span><span class="kw">&gt;</span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="kw">&lt;w:body&gt;</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">        <span class="kw">&lt;w:p&gt;</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">            <span class="kw">&lt;w:pPr</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">            <span class="kw">&lt;w:r&gt;</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">                <span class="kw">&lt;w:t&gt;</span>Lol tf there&#39;s just one sentence.<span class="kw">&lt;/w:t&gt;</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">            <span class="kw">&lt;/w:r&gt;</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">            <span class="kw">&lt;w:bookmarkStart</span><span class="ot"> w:id=</span><span class="st">&quot;0&quot;</span><span class="ot"> w:name=</span><span class="st">&quot;_GoBack&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">            <span class="kw">&lt;w:bookmarkEnd</span><span class="ot"> w:id=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">        <span class="kw">&lt;/w:p&gt;</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">        <span class="kw">&lt;w:sectPr&gt;</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">            <span class="kw">&lt;w:pgSz</span><span class="ot"> w:w=</span><span class="st">&quot;11906&quot;</span><span class="ot"> w:h=</span><span class="st">&quot;16838&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">            <span class="kw">&lt;w:pgMar</span><span class="ot"> w:top=</span><span class="st">&quot;1440&quot;</span><span class="ot"> w:right=</span><span class="st">&quot;1800&quot;</span><span class="ot"> w:bottom=</span><span class="st">&quot;1440&quot;</span><span class="ot"> w:left=</span><span class="st">&quot;1800&quot;</span><span class="ot"> w:header=</span><span class="st">&quot;851&quot;</span><span class="ot"> w:footer=</span><span class="st">&quot;992&quot;</span><span class="ot"> w:gutter=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">            <span class="kw">&lt;w:cols</span><span class="ot"> w:space=</span><span class="st">&quot;425&quot;</span><span class="ot"> w:num=</span><span class="st">&quot;1&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">            <span class="kw">&lt;w:docGrid</span><span class="ot"> w:type=</span><span class="st">&quot;lines&quot;</span><span class="ot"> w:linePitch=</span><span class="st">&quot;312&quot;</span><span class="ot"> w:charSpace=</span><span class="st">&quot;0&quot;</span> <span class="kw">/&gt;</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">        <span class="kw">&lt;/w:sectPr&gt;</span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">    <span class="kw">&lt;/w:body&gt;</span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="kw">&lt;/w:document&gt;</span></a></code></pre></div>
+</section></section>
+<section><section id="the-magic-of-pandoc" class="title-slide slide level1"><h1>The magic of Pandoc</h1></section><section id="one-library-for-almost-all-document-formats" class="slide level2">
+<h2>One library for almost all document formats</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="ex">pandoc</span> some.markdown --output some.pdf</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="ex">pandoc</span> --standalone https://openlabs.cc/ \</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">    --to asciidoc -o website.txt \</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    --self-contained</a></code></pre></div>
+</section><section id="scientific-documents" class="slide level2">
+<h2>Scientific documents</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="ex">pandoc</span> --standalone \</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    --to revealjs --from markdown+<span class="op">&lt;</span>extensions<span class="op">&gt;</span> ~/presentation.md \</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">    -o ~/presentation.html \</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    --css ~/extra.css</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="ex">pandoc</span> -s \</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">    --pdf-engine=[pdf<span class="kw">|</span><span class="ex">xe</span><span class="kw">|</span><span class="ex">lua</span>]latex -o thesis.pdf thesis.tex \</a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">    --template=~.pandoc/templates/latex.template \</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    --bibliography=<span class="va">$(</span><span class="ex">BIB_FILEPATH</span><span class="va">)</span></a></code></pre></div>
+</section><section id="more-man-pandoc" class="slide level2">
+<h2>More? <code>man pandoc</code></h2>
+<p>More than 20 input and/or output formats, including docx, epub, pdf, html, slides (via slideous, slidy, reveal.js, impress.js, etc)</p>
+</section></section>
+<section><section id="questions" class="title-slide slide level1"><h1>Questions?</h1></section><section id="me" class="slide level2">
+<h2><sup>me</sup></h2>
+<p><a href="">https://alter2000.github.io</a></p>
+<p><a href="&#x6d;&#x61;&#x69;&#108;&#116;&#x6f;&#58;&#x61;&#108;&#116;&#110;&#x61;&#116;&#x65;&#50;&#48;&#48;&#48;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;" class="email">&#x61;&#108;&#116;&#110;&#x61;&#116;&#x65;&#50;&#48;&#48;&#48;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#x6d;</a></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
