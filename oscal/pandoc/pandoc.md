@@ -230,6 +230,11 @@ pandoc -s \
 
 More than 20 input and/or output formats, including docx, epub, pdf, html, slides (via slideous, slidy, reveal.js, impress.js, etc)
 
+## Useful links
+
+- [First Pandoc presentation](http://johnmacfarlane.net/BayHac2014/) (**note:** some command options have changed ever since)
+
+
 # Questions?
 
 ## <sup>me</sup>
