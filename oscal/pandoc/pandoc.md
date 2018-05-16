@@ -1,7 +1,7 @@
 ---
 title: |-
     Pandoc: wat?
-date: 2018-05-33
+date: 2018-05-20
 theme: solarized
 css: ~/oscal/pandoc/main.css
 incremental: true
@@ -14,7 +14,7 @@ incremental: true
 ## the **wat**:
 
 #. Brief history of printing
-#. Differences between writing workflows
+#. Differences between writing workflows (WYSIWYG/WYSIWYM)
 #. Separating content and layout
 #. Further fidgeting
 
@@ -101,7 +101,7 @@ Strictly content-focused
 
 ## ConTeXt
 
-```context
+```tex
 \setuphead[section][style=\bfa]
 \setupbodyfontenvironment[default][em=italic]
 % comment (not compiled)
@@ -119,41 +119,32 @@ Strictly content-focused
 
 ## (Pandoc) Markdown
 
-``` {left}
-heading 1
-----
+    # heading 1
+    ## heading 2 {#custom-section-name}
+    ...
+    ###### heading 6
 
-heading 2
-====
+    > blockquote
 
-# heading 1
-## heading 2 {#custom-section-name}
-...
-###### heading 6
+    #. ordered list item
 
-> blockquote
+    5. beginning with another index
 
-#. ordered list item
+    - unordered list item
+    + another one
+    * with different symbols
 
-5. beginning with another index
+    [link text](https://inline.link/reference)
+    ![image alt-text/caption] (relative/reference)
+    [another link][1]
 
-- unordered list item
-+ another one
-* with different symbols
+    ayy a paragraph with _emphasized_ and **strong** text
 
-[link text](https://inline.link/reference)
-![image alt-text/caption] (relative/reference)
-[another link][1]
+    term
+    :  definition
 
-paragraph
+    [1]: #section-reference
 
-ayy another paragraph with _emphasized_ (usually *italic*) and **strong**(usually __bold__) text
-
-term
-:  definition
-
-[1]: #section-reference
-```
 
 ## rST
 
@@ -168,7 +159,16 @@ term
 
 term
   definition
+```
 
+## Org Mode
+
+```org-mode
+* Heading
+** Subheading
+* TODO: something
+  DEADLINE: <2012-12-31 mon.>
+* Term :: definition
 ```
 
 ## Office Open XML (MS)
@@ -206,34 +206,38 @@ pandoc some.markdown --output some.pdf
 
 ```sh
 pandoc --standalone https://openlabs.cc/ \
-    --to asciidoc -o website.txt \
-    --self-contained
+  --to asciidoc -o website.txt \
+  --self-contained
 ```
 
 ## Scientific documents
 
 ```sh
 pandoc --standalone \
-    --to revealjs --from markdown+<extensions> ~/presentation.md \
-    -o ~/presentation.html \
-    --css ~/extra.css
+  --to revealjs --from markdown+<extensions> ~/presentation.md \
+  -o ~/presentation.html \
+  --css ~/extra.css
 ```
 
 ```sh
 pandoc -s \
-    --pdf-engine=[pdf|xe|lua]latex -o thesis.pdf thesis.tex \
-    --template=~.pandoc/templates/latex.template \
-    --bibliography=$(BIB_FILEPATH)
+  --pdf-engine=[pdf|xe|lua]latex -o thesis.pdf thesis.tex \
+  --template=~.pandoc/templates/latex.template \
+  --bibliography=$(BIB_FILEPATH)
 ```
 
 ## More? `man pandoc`
 
 More than 20 input and/or output formats, including docx, epub, pdf, html, slides (via slideous, slidy, reveal.js, impress.js, etc)
 
+There's [RStudio](https://www.rstudio.com) using this extensively
+
 ## Useful links
 
 - [First Pandoc presentation](http://johnmacfarlane.net/BayHac2014/) (**note:** some command options have changed ever since)
-
+- [Pandoc documentation](http://pandoc.org) (prettier than most)
+- [Panzer](https://github.com/msprev/panzer/) (Pandoc extension layer)
+- [knitr](https://github.com/yihui/knitr) and [knitpy](httpsL//github.com/jankatins/knitpy) (insert graphs, tables, raw data inside Markdown documents)
 
 # Questions?
 
