@@ -1,13 +1,14 @@
 ---
 title: |-
     Pandoc: wat?
-date: 2018-05-20
+date: 2018-05-19
 theme: solarized
 css: ~/oscal/pandoc/main.css
 incremental: true
+controls: false
 ---
 
-![](https://media.giphy.com/media/KOVlHmbBA09XO/giphy.gif)
+![alt text](https://media.giphy.com/media/KOVlHmbBA09XO/giphy.gif)
 
 # Why are you here?
 
@@ -18,7 +19,7 @@ incremental: true
 #. Separating content and layout
 #. Further fidgeting
 
-Slides: <https://github.com/alter2000/prez/>
+Slides: <https://github.com/alter2000/pres/>
 
 
 ## Text editing vs. Document editing
@@ -246,3 +247,6 @@ There's [RStudio](https://www.rstudio.com) using this extensively
 [https://alter2000.github.io]()
 
 <altnate2000@gmail.com>
+
+
+
