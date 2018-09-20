@@ -3,12 +3,12 @@ title: |-
     Pandoc: wat?
 date: 2018-05-19
 theme: solarized
-css: ~/oscal/pandoc/main.css
+css: main.css
 incremental: true
 controls: false
 ---
 
-![alt text](https://media.giphy.com/media/KOVlHmbBA09XO/giphy.gif)
+![alt text](https://media.giphy.com/media/KOVlHmbBA09XO/giphy.gif){.stretch}
 
 # Why are you here?
 

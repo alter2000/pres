@@ -1,1 +1,1 @@
-/home/alter2000/git/reveal.js
+/home/alter2000/.pandoc/reveal.js
