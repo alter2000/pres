@@ -1,1 +1,0 @@
-/home/alter2000/.pandoc/reveal.js

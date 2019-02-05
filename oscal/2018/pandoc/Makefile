@@ -2,6 +2,7 @@
 # All markdown files in the working directory
 SRC = $(wildcard *.md)
 PREFIX = $(HOME)/.pandoc
+REVEALPREFIX = $(PREFIX)/reveal.js
 BIB = $(HOME)/static/documents/bibs/socbib-pandoc.bib
 PDFS=$(SRC:.md=.pdf)
 HTML=$(SRC:.md=.html)
@@ -37,7 +38,7 @@ mdown:	$(SRC)
 		--self-contained \
 		--mathjax \
 		-V css=main.css \
-		-V revealjs-url=$(HOME)/.pandoc/reveal.js
+		-V revealjs-url=$(REVEALPREFIX)
 		# --template=$(PREFIX)/templates/revealjs.template
 
 %.pdf:	%.md
