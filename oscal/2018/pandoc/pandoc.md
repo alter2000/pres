@@ -1,11 +1,11 @@
 ---
 title: |-
     Pandoc: wat?
-date: 2018-05-19
-theme: solarized
-css: main.css
-incremental: true
-controls: false
+date: "2018-05-19"
+theme: "solarized"
+css: "main.css"
+incremental: "true"
+controls: "false"
 ---
 
 ![alt text](https://media.giphy.com/media/KOVlHmbBA09XO/giphy.gif){.stretch}

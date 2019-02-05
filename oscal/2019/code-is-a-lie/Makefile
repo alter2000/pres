@@ -13,7 +13,7 @@ REVEALJS = $(SRC:.$(EXTENSION)=.rjs.html)
 
 default: revealjs
 
-re: clean default
+re:	default clean
 all:	$(PDFS) $(HTML) $(TEX) $(DOCX) $(REVEALJS)
 
 pdf:	$(PDFS)
@@ -39,10 +39,9 @@ revealjs:	$(REVEALJS)
 
 %.rjs.html:	%.$(EXTENSION)
 	pandoc -w revealjs -o $@ $< \
-		--self-contained \
 		--mathjax \
-		-V css=main.css \
-		-V revealjs-url=$(REVEALPREFIX)
+		-V revealjs-url=$(REVEALPREFIX) \
+		--self-contained
 		# --template=$(PREFIX)/templates/revealjs.template
 	@test -n $(BROWSER) && $(BROWSER) $@
 
