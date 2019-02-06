@@ -3,6 +3,10 @@
 SRC = $(wildcard *.md)
 PREFIX = $(HOME)/.pandoc
 REVEALPREFIX = $(PREFIX)/reveal.js
+
+ENV = PATH=node_modules/.bin:$(PATH)
+NODEFILTERS = mermaid-filter
+
 EXTENSION = md
 BIB = $(HOME)/static/documents/bibs/socbib-pandoc.bib
 DOCX = $(SRC:.$(EXTENSION)=.docx)
@@ -24,8 +28,9 @@ mdown:	$(SRC)
 revealjs:	$(REVEALJS)
 
 %.html:	%.$(EXTENSION)
-	pandoc -w html -o $@ $< \
+	$(ENV) pandoc -w html -o $@ $< \
 		--self-contained \
+		-F $(NODEFILTERS) \
 		--css=$(PREFIX)/css/pandoc.css
 		# --template=$(PREFIX)/templates/html.template
 		# --bibliography=$(BIB)
@@ -38,9 +43,10 @@ revealjs:	$(REVEALJS)
 		# --bibliography=$(BIB)
 
 %.rjs.html:	%.$(EXTENSION)
-	pandoc -w revealjs -o $@ $< \
+	$(ENV) pandoc -w revealjs -o $@ $< \
 		--slide-level=2 \
 		--mathjax \
+		-F $(NODEFILTERS) \
 		-V revealjs-url=$(REVEALPREFIX) \
 		--self-contained
 		# --template=$(PREFIX)/templates/revealjs.template

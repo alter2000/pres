@@ -1,3 +1,4 @@
 **/*.rjs.html
 **/*.pdf
 **/*.tex
+**/node_modules
