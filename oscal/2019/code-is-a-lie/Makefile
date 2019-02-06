@@ -4,7 +4,7 @@ SRC = $(wildcard *.md)
 PREFIX = $(HOME)/.pandoc
 REVEALPREFIX = $(PREFIX)/reveal.js
 
-ENV = PATH=node_modules/.bin:$(PATH)
+ENV = PATH=$(shell npm bin):$(PATH)
 NODEFILTERS = mermaid-filter
 
 EXTENSION = md
