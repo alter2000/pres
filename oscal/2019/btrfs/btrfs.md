@@ -17,13 +17,6 @@ Take a guess who this guy is. Look at the talk title. I've given enough hints.
 
 ---
 
-_Code is a lie, there is only logic,  
- Through logic I gain strength,  
- Through strength, I gain power,  
- Through power, I gain victory,  
- Through victory, my chains are broken.  
- Humanity shall free me._
-
 ::: notes
 The Code of the Sith might be a pickle for those of you who don't watch the
 decent Star Wars. Although I haven't had much time to rewatch them, something
