@@ -39,6 +39,7 @@ revealjs:	$(REVEALJS)
 
 %.rjs.html:	%.$(EXTENSION)
 	pandoc -w revealjs -o $@ $< \
+		--slide-level=2 \
 		--mathjax \
 		-V revealjs-url=$(REVEALPREFIX) \
 		--self-contained

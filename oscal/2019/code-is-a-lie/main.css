@@ -17,9 +17,9 @@
 
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   text-transform: none;
-  font-family: "CMU Serif";
+  font-family: "TeX Gyre Pagella";
 }
 
 .reveal h1 { font-size: 3em; }
 
-.reveal { font-family: "CMU Serif" }
+.reveal { font-family: "TeX Gyre Pagella" }
