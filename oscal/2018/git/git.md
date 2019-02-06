@@ -1,25 +1,30 @@
-
-
-
-# sup
-
-`git init`
-
+---
+patat:
+  wrap: true
+  slideLevel: 1
+  pandocExtensions:
+    - patat_extensions
+    - autolink_bare_urls
+  images:
+    backend: w3m
+  margins:
+    up: 9
+    left: 9
+    right: 9
+    down: 9
 ---
 
+# 'sup
 
+`git init`
 
 # Anyone uses CLI git often?
 
 ---
 
-
-
 # What for?
 
 ---
-
-
 
 # Anyone uses sync services?
 
@@ -30,8 +35,6 @@
 - Sia
 
 ---
-
-
 
 git can get that done too, _but_:
 
@@ -44,8 +47,6 @@ git can get that done too, _but_:
 
 ---
 
-
-
 # Some of you might know the power of git.
 
 ## Some might have even tried Subversion (svn)
@@ -57,8 +58,6 @@ git can get that done too, _but_:
 
 ---
 
-
-
 # `pass`
 
 <https://www.passwordstore.org/>
@@ -66,8 +65,6 @@ git can get that done too, _but_:
 The UNIX password manager
 
 ---
-
-
 
 # `bup`
 
@@ -78,8 +75,6 @@ The UNIX password manager
   - think btrfs/ZFS but only for files
 
 ---
-
-
 
 ## _How_ does git git to do such things?
 
@@ -99,8 +94,6 @@ The UNIX password manager
 ---
 
 
-
-
       ↓ HEAD                 ↓ git commit --amend
     +---+   +---+   +---+  +---+
     | e`+<--+ d`+<--+ c`+<-+ b`|
@@ -115,20 +108,10 @@ The UNIX password manager
 
 ---
 
-
-
-
-
   Mercurial can do some of these
       although it's _not_ as flexible
 
-
 ---
-
-
-
-
-
 
 # Too much?
 
