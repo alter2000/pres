@@ -1,9 +1,9 @@
 # vim:ts=4 sw=4
 # All markdown files in the working directory
-SRC = $(wildcard *.md)
+EXTENSION = md
+SRC = $(wildcard *.$(EXTENSION))
 PREFIX = $(HOME)/.pandoc
 REVEALPREFIX = $(PREFIX)/reveal.js
-EXTENSION = md
 BIB = $(HOME)/static/documents/bibs/socbib-pandoc.bib
 DOCX = $(SRC:.$(EXTENSION)=.docx)
 HTML = $(SRC:.$(EXTENSION)=.html)

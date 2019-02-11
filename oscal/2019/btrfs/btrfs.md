@@ -1,8 +1,8 @@
 ---
 title: |-
-  ButterFS, BtreeFS, BetterFS
-date: "2019-05-18"
-theme: "white"
+  ButterFS, BtreeFS, BetterFS, **Btrfs?**
+# date: "2019-05-18"
+theme: "black"
 css: "main.css"
 incremental: "true"
 controls: "false"
@@ -12,43 +12,73 @@ progress: "false"
 # Hello
 
 ::: notes
-Take a guess who this guy is. Look at the talk title. I've given enough hints.
+We're going to cook with butter now. If you have some space on your hard
+drives, that would be great. Btrfs is a filesystem, so we will need some files
+too. We can just make them as we go.
 :::
+
+# File systems
+
+::: notes
+What about them? Some wicked smaht people make them, and some of them have made
+some nice things that are reminiscent of high school logic problems. What is
+a union? Overlaying copies?
+
+Back then before I was, there was only one table in the beginning of the
+filesystem with all the info needed for manipulating files at that time. That
+was the time of FAT: File Allocation Table.
+
+Anyway, a file system is what it says, a way to store files. There's a table
+(or many of them) that keeps note of where your files are and some other
+information about them. Most modern filesystems also have journaling features,
+by which they provide some crash resistance.
+
+How does this journaling work? Basically, before doing an operation, it is
+written in _the journal_, then when there's a crash, the computer checks the
+journal and what is actually completed to fix, if not recover lost information.
+
+Now we can have things like the above, plus many more goodies: filesystems
+spanning across multiple hardware drives without hassle, self-healing, backups
+that only store the differences, live compression, and much more.
+:::
+
+## wut?
 
 ---
 
+```{.mermaid format=svg width=max theme=forest caption="union filesystem driver oversimplified"}
+  graph LR
+  a[request I/O]
+  a-->|read| b{exists in use layer?}
+  b-->|no/offline| c(read from base)
+  b-->|yes| e(read from use layer)
+  a-->|write| f(modify use layer)
+```
+
+## OverlayFS (v2)
+
+## What do?
+
+* Something running GNU/Linux (keyboard preferred, monitor optional)
+* Some free storage space in said thing
+* Some time
+* `btrfs-progs`
+
 ::: notes
-The Code of the Sith might be a pickle for those of you who don't watch the
-decent Star Wars. Although I haven't had much time to rewatch them, something
-has stuck with me from all the games: what is the point of all this? We have
-space Jesus and the space Jews and the space Disciples and everything just to
-fatten someone's pockets?
+A Linux box is preferred, if not necessary, since Windows has virtually no
+suppport for Btrfs. There are drivers for Windows, but I've been told they're
+not remotely good. I assume they are good enough for copying/reading, though.
+
+You will need a package usually called `btrfs-progs`, some free space in
+a thumb drive or your own hard drive, or a currently running Btrfs partition
+(like me!)
 :::
 
-# Now where is the code?
+# The work
 
-::: notes
-No code here `._.` This is all about the word "code". Why is it that many
-software developers, analysts, QAs, designers, project managers and every job
-in between uses haute-couture jargon oftentimes for no reason?
+### Cheatsheet: <https://4chan.org>
 
-This year I've had the chance to fiddle with people who don't bother getting
-their browser off fullscreen mode until shutting down, and people who get angry
-at a 1px menu border and spend 6 hours fixing it. They are both the good kinds
-of people, simply because they do what they want. Do they understand tech speak
-though? The former, most probably not. Yet how do medics explain patients
-what's going on inside them? How do lawyers do their job without getting well
-over their client's head?
-
-This is all about tech speak. I'm tired of my general director spewing large
-words left and right just because the masses think it's awesome to use AI and
-blockchains and whatnot.
-:::
-
-## I know big words, therefore I know something about the problem\*
-   <small><sub>\*if not the solution</sub></small>
-
-# Questions?
+# `more`
 
 ## <sup>me</sup>
 
