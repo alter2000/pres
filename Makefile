@@ -35,7 +35,6 @@ revealjs:	$(REVEALJS)
 		--css=$(PREFIX)/css/pandoc.css
 		# --template=$(PREFIX)/templates/html.template
 		# --bibliography=$(BIB)
-	@test -n $(BROWSER) && $(BROWSER) $@
 
 %.tex:	%.$(EXTENSION)
 	pandoc -w latex -s -o $@ $< \
@@ -52,14 +51,12 @@ revealjs:	$(REVEALJS)
 		-V revealjs-url=$(REVEALPREFIX) \
 		--self-contained
 		# --template=$(PREFIX)/templates/revealjs.template
-	@test -n $(BROWSER) && $(BROWSER) $@
 
 %.pdf:	%.$(EXTENSION)
 	pandoc -s \
 		--pdf-engine=pdflatex -o $@ $< \
 		--bibliography=$(BIB)
 		# --template=$(PREFIX)/templates/latex.template
-	@test -n $(BROWSER) && $(BROWSER) $@
 
 %.docx:	%.$(EXTENSION)
 	pandoc -s -o $@ $<  #--bibliography=$(BIB)
