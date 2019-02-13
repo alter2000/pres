@@ -34,6 +34,9 @@ fatten someone's pockets?
 
 # Now where is the code?
 
+## I know big words, therefore I know something about the problem\*
+   <small><sub>\*if not the solution</sub></small>
+
 ::: notes
 No code here `._.` This is all about the word "code". Why is it that many
 software developers, analysts, QAs, designers, project managers and every job
@@ -52,8 +55,10 @@ words left and right just because the masses think it's awesome to use AI and
 blockchains and whatnot.
 :::
 
-## I know big words, therefore I know something about the problem\*
-   <small><sub>\*if not the solution</sub></small>
+---
+
+Ideas we know can be repeated and implemented with different tools;  
+those we don't are used unmodified, well after the tools are rendered obsolete.
 
 # Questions?
 
