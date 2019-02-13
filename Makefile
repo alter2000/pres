@@ -1,13 +1,13 @@
 # vim:ts=4 sw=4
 # All markdown files in the working directory
-EXTENSION = md
-SRC = $(shell find . -type f -name '*.$(EXTENSION)')
+SRC = $(wildcard *.md)
 PREFIX = $(HOME)/.pandoc
 REVEALPREFIX = $(PREFIX)/reveal.js
 
 ENV = PATH=$(shell npm bin):$(PATH)
 NODEFILTERS = mermaid-filter
 
+EXTENSION = md
 BIB = $(HOME)/static/documents/bibs/socbib-pandoc.bib
 DOCX = $(SRC:.$(EXTENSION)=.docx)
 HTML = $(SRC:.$(EXTENSION)=.html)
@@ -28,7 +28,8 @@ mdown:	$(SRC)
 revealjs:	$(REVEALJS)
 
 %.html:	%.$(EXTENSION)
-	$(ENV) pandoc -w html -o $@ $< \
+	$(ENV) \
+	pandoc -w html -o $@ $< \
 		--self-contained \
 		-F $(NODEFILTERS) \
 		--css=$(PREFIX)/css/pandoc.css
@@ -43,7 +44,8 @@ revealjs:	$(REVEALJS)
 		# --bibliography=$(BIB)
 
 %.rjs.html:	%.$(EXTENSION)
-	$(ENV) pandoc -w revealjs -o $@ $< \
+	$(ENV) \
+	pandoc -w revealjs -o $@ $< \
 		--slide-level=2 \
 		--mathjax \
 		-F $(NODEFILTERS) \
