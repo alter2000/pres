@@ -76,7 +76,7 @@ a thumb drive or your own hard drive, or a currently running Btrfs partition
 
 # The work
 
-### Cheatsheet: <https://4chan.org>
+### Cheatsheet: <https://git.io/fh5ej>
 
 # `more`
 
