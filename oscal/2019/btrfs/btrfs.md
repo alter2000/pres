@@ -22,9 +22,9 @@ too. We can just make them as we go.
 ::: notes
 What about them? Some wicked smaht people make them, and some of them have made
 some nice things that are reminiscent of high school logic problems. What is
-a union? Overlaying copies?
+a union? Trees?
 
-Back then before I was, there was only one table in the beginning of the
+Back then before I existed, there was only one table in the beginning of the
 filesystem with all the info needed for manipulating files at that time. That
 was the time of FAT: File Allocation Table.
 
@@ -76,9 +76,9 @@ a thumb drive or your own hard drive, or a currently running Btrfs partition
 
 # The work
 
-### Cheatsheet: <https://git.io/fh5ej>
+### Help sheet: <https://git.io/fh5ej>
 
-# `more`
+# `more`: see above
 
 ## <sup>me</sup>
 

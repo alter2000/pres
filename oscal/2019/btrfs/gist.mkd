@@ -1,0 +1,125 @@
+# Hello there
+
+I've prepared this in case I get sick or just too lazy to speak during
+the workshop, so that you won't be left high and dry.
+
+### If you've worked before with LVM/ZFS
+
+Here's a table comparing terms:
+
+  Human                         Btrfs                       LVM                ZFS
+  ----------------------------- --------------------------- ------------------ -------------------------------------------------------
+  group of disks                volume                      volume group       pool
+  mountable 'device'            volume *and* subvolume      logical volume     dataset
+  swap space                    N/A                         `mkswap`           `zvols`
+  *shrink* total usable space   `filesystem resize`         `pvchange`         N/A
+  RO and RW snapshots           `subvolume snapshot`        many               RO only - `snapshot`
+  Deduplication                 automatic, async only       none               automatic, sync only
+  Copy-on-Write                 default on, linear time/s   pace manual, slo   w (sub-FS level) auto (default on), linear time/space
+
+### What Btrfs brings to the table over ZFS
+
+Just drop LVM already.
+
+1.  GPL license
+2.  Minimal fixed metadata -- convert Ext2/3/4 (most common FS in
+    GNU/Linux distros) to Btrfs in-place
+3.  Online defragmentation and filesystem check
+4.  Subvolumes and snapshots
+5.  Built-in RAID
+6.  Per-file checksum and healing
+7.  🅱-treeees.
+
+## Creating a filesystem inside a file
+
+You'll need this for all we're doing today. If you want, you can create
+a partition in your main drive and/or a thumb drive via Gparted or
+`fdisk`/`gdisk` (or their TUI counterparts).
+
+Given that in UNIX systems *everything* is a file (including the monitor
+or printer you are reading this from), we can make a filesystem inside a
+normal file. The instructions create one in `/tmp` so that there's no
+trace of these operations after reboot.
+
+``` {.sh}
+# work on a temporary directory; files usually deleted on reboot
+mkdir /tmp/bfs && cd /tmp/bfs
+# create file used for filesystem and set its size to 500M
+truncate -s 500m filefs
+# create the filesystem
+mkfs.btrfs filefs
+# create the mountpoint for the filesystem
+mkdir fsmnt
+# actually mount the file as a complete filesystem ("loopback device")
+# root access is required for specifying options
+sudo mount -o loop filefs fsmnt
+```
+
+## Creating/deleting subvolumes
+
+A subvolume is similar to an LVM logical volume or a ZFS partition. Root
+access is required, since you're modifying a root-mounted device.
+
+``` {.sh}
+sudo btrfs subvolume create <subvol_name>
+```
+
+``` {.sh}
+# rm -rf on the subvolume path could work, but takes way too much time
+sudo btrfs subvolume delete <subvol_name>
+```
+
+## Moving/editing subvolumes/filesystem
+
+-   Resize: `sudo btrfs filesystem resize [+/-]<size>[max] <path>`
+-   Sync for clean changes: `sudo btrfs filesystem sync <path>`
+-   Find FS usage ('disk free'): `sudo btrfs filesystem df <path>`
+-   Find new files in subvolume:
+    `sudo btrfs subvolume find-new <subvol_name> <last_gen`
+-   Set default subvolume to mount:
+    `sudo btrfs subvolume set-default <subvol_name>|<subvolid> <path>`
+-   List subvolumes: `sudo btrfs subvolume list <path>`
+-   Add device to volume:
+    `sudo btrfs filesystem add <devpath> <volpath>`
+    -   Remember to balance the volume data after adding a new device:
+        `sudo btrfs filesystem balance <volpath>`
+-   Remove a device: `sudo btrfs filesystem delete <devpath>`
+-   Remove all reverences to deleted devices:
+    `sudo btrfs filesystem delete missing`
+
+## Snapshots
+
+``` {.sh}
+sudo btrfs subvolume snapshot [-r] <subvol_name> <snapshot_name>
+```
+
+Specify `-r` for a read-only snapshot, else read-write. Nothing else
+needed to work.
+
+## Moving entire volumes through standard output/input (tar backup)
+
+`sudo btrfs send -c <old-snapshot> <snapshot> | ssh laptop@backup.host "btrfs receive"`
+
+## Tips/trivia
+
+**All** Btrfs subvolumes have a name and a \>0 ID, except the root
+subvolume (ID=0, no name). All tools manipulating Btrfs volumes
+themselves (and not their contents) modify subvolumes by name, so the
+root subvolume is by all means unmodifiable. What one could do instead,
+is create a subvolume right under root and use that as the default for
+everything (ID=5, *but why?*).
+
+Ideal setup for a desktop workstation: RAID0 data and RAID1 metadata
+with daily snapshots, weekly off-site backup (incremental, of course),
+with `zstd` compression.
+
+## Links
+
+-   [Original OverlayFS
+    proposal](https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt)
+-   [Btrfs kernel.org wiki
+    page](https://btrfs.wiki.kernel.org/index.php/Main_Page)
+-   [LKML discussion on choice of
+    B-trees](https://lkml.org/lkml/2010/6/18/144)
+-   [Don'ts and other spicy
+    things](https://btrfs.wiki.kernel.org/index.php/Gotchas)

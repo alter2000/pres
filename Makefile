@@ -3,8 +3,9 @@
 SRC = $(wildcard *.md)
 PREFIX = $(HOME)/.pandoc
 REVEALPREFIX = $(PREFIX)/reveal.js
+# REVEALPREFIX = https://revealjs.com/js/reveal.js
 
-ENV = PATH=$(shell npm bin):$(PATH)
+ENV = PATH=node_modules/.bin:$(PATH)
 NODEFILTERS = mermaid-filter
 
 EXTENSION = md
@@ -45,11 +46,12 @@ revealjs:	$(REVEALJS)
 %.rjs.html:	%.$(EXTENSION)
 	$(ENV) \
 	pandoc -w revealjs -o $@ $< \
+		--standalone \
 		--slide-level=2 \
 		--mathjax \
 		-F $(NODEFILTERS) \
-		-V revealjs-url=$(REVEALPREFIX) \
-		--self-contained
+		-V revealjs-url=$(REVEALPREFIX)
+		# --self-contained
 		# --template=$(PREFIX)/templates/revealjs.template
 
 %.pdf:	%.$(EXTENSION)
